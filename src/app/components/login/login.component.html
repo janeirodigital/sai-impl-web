@@ -4,7 +4,7 @@
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <h2>Log In</h2>
       <mat-form-field class="full-width-input">
-        <input matInput placeholder="http://localhost:3000" formControlName="issuer">
+        <input matInput formControlName="issuer" required>
         <mat-error>Please provide a valid Solid Provider</mat-error>
       </mat-form-field>
       <button mat-raised-button color="primary">Login</button>

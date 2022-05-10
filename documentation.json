@@ -1184,7 +1184,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "\n* {\n  box-sizing: border-box;\n  font-family: sans-serif;\n}\n\nmat-expansion-panel-header {\n  height: auto !important;\n  padding-bottom: 10px;\n  padding-top: 10px;\n\n  img {\n    height: 75px;\n    width: 75px;\n    border-radius: 50%;\n    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.19);\n    border: solid 2px #FFF;\n  }\n\n}\n\n.content {\n  display: flex;\n  width: 100%;\n  padding: 5px;\n  gap: 10px;\n}\n\n.text-content {\n  display: flex;\n  width: 100%;\n  flex-flow: column nowrap;\n  justify-content: space-evenly;\n\n  h3 {\n    color: #131415;\n  }\n\n  p {\n    font-size: 0.85rem;\n    color: #768692;\n  }\n\n  .date-line {\n    display: inline-flex;\n    justify-content: space-between;\n  }\n\n  h3, p {\n    margin: 0px;\n  }\n}\n\na {\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  max-width: 10px;\n}\n\n\n.access-need {\n  display: flex;\n  justify-content: space-between;\n  padding: 15px 60px;\n}\n\n.access-label-container {\n  display: flex;\n  flex-flow: row nowrap;\n  gap: 10px;\n\n  .label {\n    text-transform: capitalize;\n    padding: 10px 20px;\n    border-radius: 5%;\n    align-self: center;\n    background-color: #f7f7f7;\n  }\n}\n\n.access-need.even {\n  background-color: #fafafa;\n}\n\n:host ::ng-deep .mat-expansion-panel-body {\n  padding: 0;\n}\n",
+                    "data": "* {\n  box-sizing: border-box;\n  font-family: sans-serif;\n}\n\nmat-expansion-panel-header {\n  height: auto !important;\n  padding-bottom: 10px;\n  padding-top: 10px;\n\n  img {\n    height: 75px;\n    width: 75px;\n    border-radius: 50%;\n    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.19);\n    border: solid 2px #FFF;\n  }\n\n}\n\n.content {\n  display: flex;\n  width: 100%;\n  padding: 5px;\n  gap: 10px;\n}\n\n.text-content {\n  display: flex;\n  width: 100%;\n  flex-flow: column nowrap;\n  justify-content: space-evenly;\n\n  h3 {\n    color: #131415;\n  }\n\n  p {\n    font-size: 0.85rem;\n    color: #768692;\n  }\n\n  .date-line {\n    display: inline-flex;\n    justify-content: space-between;\n  }\n\n  h3, p {\n    margin: 0;\n  }\n}\n\na {\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  max-width: 10px;\n}\n\n\n.access-need {\n  display: flex;\n  justify-content: space-between;\n  padding: 15px 60px;\n}\n\n.access-label-container {\n  display: flex;\n  flex-flow: row nowrap;\n  gap: 10px;\n  justify-content: center;\n\n  .label {\n    text-transform: capitalize;\n    padding: 5px 20px;\n    border-radius: 10px;\n    align-self: center;\n  }\n\n  button {\n    background: rgba(0, 0, 0, 0.05);\n  }\n}\n\n.access-need.even {\n  background-color: #fafafa;\n}\n\n:host ::ng-deep .mat-expansion-panel-body {\n  padding: 0;\n}\n\n.actions {\n  padding: 0;\n  background-color: rgba(218, 41, 28, 0.3);\n  button {\n    color: #da291c;\n    width: 100%;\n  }\n}\n\n//@include breakpoint(mobile){\n@media (max-width: 767px) and (orientation: portrait) {\n  .hide-mobile {\n    display: none;\n  }\n  .main-header {\n    padding: 0;\n  }\n  span.mat-expansion-indicator {\n    margin-right: 5px;\n  }\n  .date-line {\n    flex-flow: column;\n  }\n  .access-need {\n    padding: 15px 10px;\n    flex-flow: column;\n  }\n  .access-label-container {\n    margin-top: 2%;\n  }\n}\n\n.material-icons {\n  font-family: 'Material Icons';\n  font-weight: normal;\n  font-style: normal;\n  font-size: 24px;  /* Preferred icon size */\n  display: inline-block;\n  line-height: 1;\n  text-transform: none;\n  letter-spacing: normal;\n  word-wrap: normal;\n  white-space: nowrap;\n  direction: ltr;\n\n  /* Support for all WebKit browsers. */\n  -webkit-font-smoothing: antialiased;\n  /* Support for Safari and Chrome. */\n  text-rendering: optimizeLegibility;\n\n  /* Support for Firefox. */\n  -moz-osx-font-smoothing: grayscale;\n\n  /* Support for IE. */\n  font-feature-settings: 'liga';\n}\n\n",
                     "styleUrl": "./consent-panel.component.scss"
                 }
             ],
@@ -1200,7 +1200,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "\n<mat-accordion>\n<!--  TODO (angel) remove expanded property, for testing only -->\n  <mat-expansion-panel [expanded]=\"true\">\n    <mat-expansion-panel-header>\n      <mat-panel-title>\n        <div class=\"content\">\n          <img src=\"{{profile.thumbnail}}\">\n          <div class=\"text-content\">\n            <h3>{{profile.name}}</h3>\n            <p>{{profile.description}}</p>\n            <p class=\"date-line\">\n              <span>{{profile.author}}</span>\n              <span>Registered on: {{profile.authorizationDate | date}}</span>\n            </p>\n          </div>\n        </div>\n      </mat-panel-title>\n    </mat-expansion-panel-header>\n    <div class=\"panel-content\">\n<!--      TODO (angel) remove expanded, for testing only -->\n      <mat-expansion-panel *ngFor=\"let group of groups\" expanded=\"true\">\n        <mat-expansion-panel-header>\n          <div class=\"text-content\">\n            <h3>{{group.title}}</h3>\n            <p>{{group.description}}</p>\n          </div>\n        </mat-expansion-panel-header>\n        <div class=\"access-need-panel\">\n          <div class=\"access-need\" *ngFor=\"let need of group.needs; let odd=odd; let even=even\" [ngClass]=\"{odd: odd, even: even}\">\n            <div class=\"text-content\">\n              <h3>{{need.title}}</h3>\n              <p>{{need.description}}</p>\n            </div>\n            <div class=\"access-label-container\">\n              <div *ngFor=\"let level of need.access\" class=\"label\">\n                {{level}}\n              </div>\n            </div>\n          </div>\n        </div>\n      </mat-expansion-panel>\n    </div>\n  </mat-expansion-panel>\n</mat-accordion>\n"
+            "templateData": "\n<mat-accordion>\n<!--  TODO (angel) remove expanded property, for testing only -->\n  <mat-expansion-panel [expanded]=\"true\">\n    <mat-expansion-panel-header class=\"main-header\">\n      <mat-panel-title>\n        <div class=\"content\">\n          <img src=\"{{profile.thumbnail}}\">\n          <div class=\"text-content\">\n            <h3>{{profile.name}}</h3>\n            <p>{{profile.description}}</p>\n            <p class=\"date-line\">\n              <span>{{profile.author}}</span>\n              <span>Registered on: {{profile.authorizationDate | date}}</span>\n            </p>\n          </div>\n        </div>\n      </mat-panel-title>\n    </mat-expansion-panel-header>\n    <div class=\"panel-content\">\n<!--      TODO (angel) remove expanded, for testing only -->\n      <mat-expansion-panel *ngFor=\"let group of groups\" expanded=\"true\">\n        <mat-expansion-panel-header>\n          <div class=\"text-content\">\n            <h3>{{group.title}}</h3>\n            <p>{{group.description}}</p>\n          </div>\n        </mat-expansion-panel-header>\n        <div class=\"access-need-panel\">\n          <div class=\"access-need\" *ngFor=\"let need of group.needs; let odd=odd; let even=even\" [ngClass]=\"{odd: odd, even: even}\">\n            <div class=\"text-content\">\n              <h3>{{need.title}}</h3>\n              <p>{{need.description}}</p>\n            </div>\n            <div class=\"access-label-container\">\n              <button mat-button *ngFor=\"let level of need.access\" class=\"label\">\n                <mat-icon aria-hidden=\"false\">\n                  {{level === 'read' ? 'visibility' : 'edit'}}\n                </mat-icon>\n                {{level}}\n              </button>\n            </div>\n          </div>\n        </div>\n      </mat-expansion-panel>\n    </div>\n    <mat-card class=\"actions\">\n      <button mat-button>SAVE</button>\n    </mat-card>\n  </mat-expansion-panel>\n</mat-accordion>\n"
         },
         {
             "name": "DashboardComponent",
@@ -1383,7 +1383,7 @@
         },
         {
             "name": "LoginComponent",
-            "id": "component-LoginComponent-0e587e7f101d8e966e0b3715cde7a0d50afeafe1dd05f2d68e2cfa0c70363b669ecadf840627cc45691e9014c9bcef0bc71673196d5ee4711df943866050baf9",
+            "id": "component-LoginComponent-a940b70e20532a71c3fbff897deb7a142c5d11730961f1a344a8c81ac8b3e0c49baae7501f13600a1bd45732407c35d7f78c4f9c84218383c9bd9dee43229d76",
             "file": "src/app/components/login/login.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1430,7 +1430,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 23,
+                    "line": 24,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -1442,7 +1442,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { FormControl, FormGroup } from '@angular/forms';\nimport {Store} from \"@ngrx/store\";\nimport {CoreActions} from \"../../actions\";\n\n@Component({\n  selector: 'sai-login',\n  templateUrl: './login.component.html',\n  styleUrls: ['./login.component.scss']\n})\nexport class LoginComponent implements OnInit {\n\n  loginForm = new FormGroup({\n    issuer: new FormControl(''),\n  })\n\n  constructor(\n    private store: Store,\n  ) { }\n\n  ngOnInit(): void {}\n\n  onSubmit() {\n    this.store.dispatch(CoreActions.loginRequested({idP: this.loginForm.get('issuer')!.value}));\n  }\n}\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { FormControl, FormGroup } from '@angular/forms';\nimport {Store} from \"@ngrx/store\";\nimport {CoreActions} from \"../../actions\";\n\n@Component({\n  selector: 'sai-login',\n  templateUrl: './login.component.html',\n  styleUrls: ['./login.component.scss']\n})\nexport class LoginComponent implements OnInit {\n\n  loginForm = new FormGroup({\n    issuer: new FormControl(''),\n  })\n\n  constructor(\n    private store: Store,\n  ) { }\n\n  ngOnInit(): void {\n  }\n\n  onSubmit() {\n    this.store.dispatch(CoreActions.loginRequested({idP: this.loginForm.get('issuer')!.value}));\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1480,7 +1480,111 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "\n<mat-card>\n  <mat-card-content>\n    <form [formGroup]=\"loginForm\" (ngSubmit)=\"onSubmit()\">\n      <h2>Log In</h2>\n      <mat-form-field class=\"full-width-input\">\n        <input matInput placeholder=\"http://localhost:3000\" formControlName=\"issuer\">\n        <mat-error>Please provide a valid Solid Provider</mat-error>\n      </mat-form-field>\n      <button mat-raised-button color=\"primary\">Login</button>\n    </form>\n  </mat-card-content>\n</mat-card>\n\n\n\n"
+            "templateData": "\n<mat-card>\n  <mat-card-content>\n    <form [formGroup]=\"loginForm\" (ngSubmit)=\"onSubmit()\">\n      <h2>Log In</h2>\n      <mat-form-field class=\"full-width-input\">\n        <input matInput placeholder=\"http://localhost:3000\" formControlName=\"issuer\" required>\n        <mat-error>Please provide a valid Solid Provider</mat-error>\n      </mat-form-field>\n      <button mat-raised-button color=\"primary\">Login</button>\n    </form>\n  </mat-card-content>\n</mat-card>\n\n\n\n"
+        },
+        {
+            "name": "LoginComponent",
+            "id": "component-LoginComponent-bbd7355133ecdb77908cbcc081038c2de4b16f97bdef7f72d6152424e12b6c744fda92f226c06586e8c7053d66bd0274f53e0a1a15b33eee80227f42e13eb8ea-1",
+            "file": "src/app/views/login/login.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "sai-login",
+            "styleUrls": [
+                "./login.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./login.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "loginForm",
+                    "defaultValue": "new FormGroup({\n    issuer: new FormControl(''),\n  })",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 13
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 21,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "onSubmit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 24,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport {FormControl, FormGroup} from \"@angular/forms\";\nimport {CoreActions} from \"../../actions\";\nimport {Store} from \"@ngrx/store\";\n\n@Component({\n  selector: 'sai-login',\n  templateUrl: './login.component.html',\n  styleUrls: ['./login.component.scss']\n})\nexport class LoginComponent implements OnInit {\n\n  loginForm = new FormGroup({\n    issuer: new FormControl(''),\n  })\n\n  constructor(\n    private store: Store,\n  ) { }\n\n  ngOnInit(): void {\n  }\n\n  onSubmit() {\n    this.store.dispatch(CoreActions.loginRequested({idP: this.loginForm.get('issuer')!.value}));\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".login-wrapper {\n  display:flex;\n  justify-content: center;\n  align-content: center;\n  width: 100%;\n}\nmat-card {\n  display:flex;\n  align-items: center;\n  flex-direction: column;\n  min-width: 250px;\n  max-width: 400px;\n  width: 100%;\n}\nmat-card-content {\n  display: flex;\n  width: 100%;\n  form {\n    display: block;\n    width: 100%;\n  }\n  button {\n    display: block;\n    margin: 0 auto;\n  }\n  mat-form-field {\n    display: block;\n  }\n}\n",
+                    "styleUrl": "./login.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "store",
+                        "type": "Store",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 15,
+                "jsdoctags": [
+                    {
+                        "name": "store",
+                        "type": "Store",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "isDuplicate": true,
+            "duplicateId": 1,
+            "duplicateName": "LoginComponent-1",
+            "templateData": "<div class=\"login-wrapper\">\n  <mat-card>\n    <mat-card-title>Login</mat-card-title>\n    <mat-card-content>\n      <form [formGroup]=\"loginForm\" (ngSubmit)=\"onSubmit()\">\n        <mat-form-field class=\"full-width-input\">\n          <input matInput placeholder=\"http://localhost:3000\" formControlName=\"issuer\" required>\n          <mat-error>Please provide a valid Solid Provider</mat-error>\n        </mat-form-field>\n        <button mat-raised-button color=\"primary\">Login</button>\n      </form>\n    </mat-card-content>\n  </mat-card>\n</div>\n"
         },
         {
             "name": "NavbarComponent",
@@ -1657,13 +1761,13 @@
     "modules": [
         {
             "name": "AppModule",
-            "id": "module-AppModule-fe8980b36a0460df5f6e49138921b50f7a3e11a3249e36a6cb3efd9e93fab19192c750f6b48aa6bf1056a3e0d7b77d72db27e00b154d4555adc87ca73d7f9a34",
+            "id": "module-AppModule-5799ef063c4e29e218a686b9d2345e7b1c501a41c1230f7cbab1daa18873e197d93a3a14352733dcb66fc5a00050eb2f6518ed1d6d17998cf4ffec688ed7c320",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/app.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\n\nimport { AppRoutingModule } from './app-routing.module';\nimport { AppComponent } from './app.component';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport {HTTP_INTERCEPTORS, HttpClientModule} from \"@angular/common/http\";\nimport {MatButtonModule} from \"@angular/material/button\";\nimport {MatToolbarModule} from \"@angular/material/toolbar\";\nimport {NavbarComponent} from \"./views/navbar/navbar.component\";\nimport {LoginComponent} from \"./components/login/login.component\";\nimport {MatCardModule} from \"@angular/material/card\";\nimport {ReactiveFormsModule} from \"@angular/forms\";\nimport {MatFormFieldModule} from \"@angular/material/form-field\";\nimport {MatInputModule} from \"@angular/material/input\";\nimport { DashboardComponent } from './components/dashboard/dashboard.component';\nimport { ConsentPanelComponent } from './views/consent-panel/consent-panel.component';\nimport {MatExpansionModule} from \"@angular/material/expansion\";\nimport { StoreModule } from '@ngrx/store';\nimport { reducers, metaReducers } from './reducers';\nimport { StoreDevtoolsModule } from '@ngrx/store-devtools';\nimport { ENV } from '../environments/environment';\nimport { EffectsModule } from '@ngrx/effects';\nimport {AuthInterceptor} from \"./interceptors/auth.interceptor\";\nimport {Effects} from \"./effects\";\n\n@NgModule({\n  declarations: [\n    AppComponent,\n    NavbarComponent,\n    LoginComponent,\n    DashboardComponent,\n    ConsentPanelComponent,\n  ],\n  imports: [\n    BrowserModule,\n    AppRoutingModule,\n    BrowserAnimationsModule,\n    HttpClientModule,\n    MatButtonModule,\n    MatToolbarModule,\n    MatCardModule,\n    ReactiveFormsModule,\n    MatFormFieldModule,\n    MatInputModule,\n    MatExpansionModule,\n    StoreModule.forRoot(reducers, {\n      metaReducers\n    }),\n    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: ENV.production }),\n    EffectsModule.forRoot(Effects),\n  ],\n  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],\n  bootstrap: [AppComponent]\n})\nexport class AppModule { }\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\n\nimport { AppRoutingModule } from './app-routing.module';\nimport { AppComponent } from './app.component';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport {HTTP_INTERCEPTORS, HttpClientModule} from \"@angular/common/http\";\nimport {MatButtonModule} from \"@angular/material/button\";\nimport {MatToolbarModule} from \"@angular/material/toolbar\";\nimport {NavbarComponent} from \"./views/navbar/navbar.component\";\nimport {LoginComponent} from \"./components/login/login.component\";\nimport {MatCardModule} from \"@angular/material/card\";\nimport {ReactiveFormsModule} from \"@angular/forms\";\nimport {MatFormFieldModule} from \"@angular/material/form-field\";\nimport {MatInputModule} from \"@angular/material/input\";\nimport { DashboardComponent } from './components/dashboard/dashboard.component';\nimport { ConsentPanelComponent } from './views/consent-panel/consent-panel.component';\nimport {MatExpansionModule} from \"@angular/material/expansion\";\nimport { StoreModule } from '@ngrx/store';\nimport { reducers, metaReducers } from './reducers';\nimport { StoreDevtoolsModule } from '@ngrx/store-devtools';\nimport { ENV } from '../environments/environment';\nimport { EffectsModule } from '@ngrx/effects';\nimport {AuthInterceptor} from \"./interceptors/auth.interceptor\";\nimport {Effects} from \"./effects\";\nimport {MatIconModule} from \"@angular/material/icon\";\nimport { FormsModule } from \"@angular/forms\";\n\n@NgModule({\n  declarations: [\n    AppComponent,\n    NavbarComponent,\n    LoginComponent,\n    DashboardComponent,\n    ConsentPanelComponent,\n  ],\n  imports: [\n    BrowserModule,\n    AppRoutingModule,\n    BrowserAnimationsModule,\n    HttpClientModule,\n    MatButtonModule,\n    MatToolbarModule,\n    MatCardModule,\n    ReactiveFormsModule,\n    MatFormFieldModule,\n    MatInputModule,\n    MatIconModule,\n    MatExpansionModule,\n    FormsModule,\n    StoreModule.forRoot(reducers, {\n      metaReducers\n    }),\n    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: ENV.production }),\n    EffectsModule.forRoot(Effects),\n  ],\n  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],\n  bootstrap: [AppComponent]\n})\nexport class AppModule { }\n",
             "children": [
                 {
                     "type": "providers",
@@ -2135,6 +2239,26 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "Normal",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/views/login/login.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "NormalNew",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/views/consent-panel/consent-panel.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -2287,7 +2411,7 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/views/navbar/navbar.stories.ts",
+                "file": "src/app/views/consent-panel/consent-panel.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -2297,7 +2421,17 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/views/consent-panel/consent-panel.stories.ts",
+                "file": "src/app/views/login/login.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "(args) => ({props: args})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/views/navbar/navbar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -2821,10 +2955,42 @@
                     "defaultValue": "Template.bind({})"
                 },
                 {
+                    "name": "NormalNew",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/views/consent-panel/consent-panel.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/app/views/consent-panel/consent-panel.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "(args) => ({props: args})"
+                }
+            ],
+            "src/app/views/login/login.stories.ts": [
+                {
+                    "name": "Normal",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/views/login/login.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/views/login/login.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -3424,6 +3590,45 @@
             },
             {
                 "filePath": "src/app/views/consent-panel/consent-panel.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "NormalNew",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/views/consent-panel/consent-panel.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/views/login/login.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "LoginComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/views/login/login.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Normal",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/views/login/login.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
