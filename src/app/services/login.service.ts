@@ -27,6 +27,14 @@ export class LoginService {
   }
 
   async checkServerSession(): Promise<boolean> {
+
+    const options = {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      }
+    }
+
     return this.solidClient.fetch(`${ENV.SRV_BASE}/login`)
       .then(r => r.status === 204)
   }
